@@ -118,11 +118,14 @@ def main():
     week_cost = calc_cost(week_in, week_out)
 
     bar = "━" * 54
-    print(f"\n{bar}")
-    print(f"  {'This response:':<18} {fmt(msg_in):>5} in / {fmt(msg_out):<6} out            ${msg_cost:>6.3f}")
-    print(f"  {'Session total:':<18} {fmt(sess_in):>5} in / {fmt(sess_out):<6} out  ({sess_msgs:>3} msgs)  ${sess_cost:>6.3f}")
-    print(f"  {'This week:':<18} {fmt(week_in):>5} in / {fmt(week_out):<6} out  ({week_msgs:>3} msgs)  ${week_cost:>6.3f}")
-    print(f"{bar}\n")
+    lines = [
+        f"\n{bar}",
+        f"  {'This response:':<18} {fmt(msg_in):>5} in / {fmt(msg_out):<6} out            ${msg_cost:>6.3f}",
+        f"  {'Session total:':<18} {fmt(sess_in):>5} in / {fmt(sess_out):<6} out  ({sess_msgs:>3} msgs)  ${sess_cost:>6.3f}",
+        f"  {'This week:':<18} {fmt(week_in):>5} in / {fmt(week_out):<6} out  ({week_msgs:>3} msgs)  ${week_cost:>6.3f}",
+        f"{bar}\n",
+    ]
+    print("\n".join(lines), file=sys.stderr)
 
 
 if __name__ == "__main__":
