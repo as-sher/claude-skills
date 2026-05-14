@@ -12,7 +12,8 @@ Shows token/message/cost stats for the current session and rolling weekly total 
 Run this exact command and show the output to the user:
 
 ```bash
-TRANSCRIPT=$(/bin/ls -t ~/.claude/projects/-Users-ashutoshsrivastava/*.jsonl 2>/dev/null | head -1) && \
+HOME_SLUG=$(echo "$HOME" | sed 's|/|-|g') && \
+TRANSCRIPT=$(/bin/ls -t ~/.claude/projects/${HOME_SLUG}/*.jsonl 2>/dev/null | head -1) && \
 echo "{\"session_id\":\"current\",\"transcript_path\":\"$TRANSCRIPT\"}" | \
 python3 ~/.claude/skills/usage-tracker/scripts/track_usage.py
 ```
