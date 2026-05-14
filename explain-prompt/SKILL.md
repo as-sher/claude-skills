@@ -1,17 +1,20 @@
 ---
 name: explain-prompt
 description: >
-  Analyze any prompt like a database EXPLAIN plan — breaking down token counts
-  by section, estimating cost across Claude model tiers, profiling attached files
-  and images, and suggesting optimized rewrites for bloated sections.
-  
-  ALWAYS trigger when the user types /explain-prompt followed by any text, 
-  template, or file reference. Also trigger for phrases like "how many tokens 
-  is this prompt", "what will this cost on Claude", "analyze my prompt", 
-  "prompt cost estimate", "token breakdown", or "is my prompt efficient".
+  Profile prompt architecture the way EXPLAIN ANALYZE profiles query plans.
+  Designed for the long-lived infrastructure surrounding user messages — system
+  instructions, tool definitions, agent scaffolding, RAG assembly templates,
+  memory injection patterns, output schemas, and orchestration prompts.
+  These components dominate both token usage and inference behavior in production.
+
+  ALWAYS trigger when the user types /explain-prompt followed by any text,
+  template, or file reference. Also trigger for: "analyze my system prompt",
+  "profile my agent scaffold", "how much do my tool definitions cost",
+  "token breakdown", "prompt cost estimate", "is my RAG template efficient",
+  "what will this cost on Claude", "analyze my prompt architecture".
 ---
 
-# Prompt EXPLAIN Skill
+# Prompt Architecture Profiler
 
 ## Step 1: Parse Sections
 

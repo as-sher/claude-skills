@@ -1,6 +1,26 @@
 # explain-prompt
 
-Static analysis for LLM inference pipelines.
+Architectural profiler for LLM inference pipelines.
+
+---
+
+## What to profile
+
+Unlike SQL queries, user messages are dynamic — different every call, not worth profiling individually.
+
+The target is the long-lived infrastructure that *wraps* those messages. In production AI systems, these components accumulate cost, variance, and latency debt:
+
+| Component | Why it matters |
+|---|---|
+| System instructions | The largest static block; often the least scrutinized |
+| Tool definitions | Injected on every call; can exceed 2,000 tokens unnoticed |
+| Agent scaffolding | Orchestration prompts that grow with each new capability |
+| RAG assembly templates | Context injection patterns that determine cache eligibility |
+| Memory injection | Conversation history formatting and retrieval framing |
+| Output schemas | Presence or absence determines output variance |
+| Workflow templates | Multi-step prompts that compound cost at each stage |
+
+These components change infrequently, get reviewed rarely, and tend to grow monotonically. `explain-prompt` treats them as what they are: infrastructure with measurable cost, structure, and optimization properties.
 
 ---
 
