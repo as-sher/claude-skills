@@ -113,14 +113,12 @@ def main():
     week_msgs = sum(s["messages"] for s in weekly["sessions"].values())
     week_cost = calc_cost(week_in, week_out)
 
-    # TODO(human): implement the display block here.
-    # You have these variables ready to use:
-    #   msg_in, msg_out, msg_cost       ← this response
-    #   sess_in, sess_out, sess_msgs, sess_cost  ← session total
-    #   week_in, week_out, week_msgs, week_cost  ← this week
-    #   fmt(n)  ← compact formatter (1234 → "1.2K")
-    # Goal: print a compact 3-line summary with a top/bottom border.
-    # Hint: use a fixed-width separator like "━" * N for the border.
+    bar = "━" * 54
+    print(f"\n{bar}")
+    print(f"  {'This response:':<18} {fmt(msg_in):>5} in / {fmt(msg_out):<6} out            ${msg_cost:>6.3f}")
+    print(f"  {'Session total:':<18} {fmt(sess_in):>5} in / {fmt(sess_out):<6} out  ({sess_msgs:>3} msgs)  ${sess_cost:>6.3f}")
+    print(f"  {'This week:':<18} {fmt(week_in):>5} in / {fmt(week_out):<6} out  ({week_msgs:>3} msgs)  ${week_cost:>6.3f}")
+    print(f"{bar}\n")
 
 
 if __name__ == "__main__":
