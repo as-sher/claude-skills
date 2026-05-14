@@ -28,22 +28,17 @@ The bottom two are fetched live from the Anthropic API — they show what fracti
 
 ## Installation
 
-### 1. Clone the repo
+One command — no cloned repo to maintain, no symlinks:
 
 ```bash
-git clone https://github.com/as-sher/claude-skills.git ~/claude-skills
+curl -fsSL https://raw.githubusercontent.com/as-sher/claude-skills/main/install.sh | bash -s usage-tracker
 ```
 
-### 2. Symlink the skill into Claude Code's skills directory
+This uses git sparse-checkout to copy only the `usage-tracker` files into `~/.claude/skills/usage-tracker/` and nothing else.
 
-```bash
-mkdir -p ~/.claude/skills
-ln -sf ~/claude-skills/usage-tracker ~/.claude/skills/usage-tracker
-```
+To update to the latest version, run the same command again.
 
-Claude Code discovers skills from `~/.claude/skills/`. The symlink means any future `git pull` in `~/claude-skills` is picked up automatically — no re-linking needed.
-
-### 3. Verify
+### Verify
 
 Open Claude Code and type `/usage-tracker` (or ask "how much have I used?"). You should see the stats block.
 

@@ -10,10 +10,8 @@ Personal Claude Code skill collection.
 
 ## Installing a skill
 
-Skills are discovered from `~/.claude/skills/`. Symlink from this repo so changes here are picked up automatically:
-
 ```bash
-ln -sf ~/claude-skills/<skill-name> ~/.claude/skills/<skill-name>
+curl -fsSL https://raw.githubusercontent.com/as-sher/claude-skills/main/install.sh | bash -s <skill-name>
 ```
 
-Then invoke the skill in Claude Code to complete any one-time setup (e.g. hook configuration).
+Files are copied directly into `~/.claude/skills/<skill-name>/` — no repo clone to maintain, no symlinks. Run the same command again to update.
