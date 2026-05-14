@@ -22,10 +22,14 @@ def read_transcript(path):
             for line in f:
                 try:
                     data = json.loads(line)
-                    if data.get("type") == "assistant" and "message" in data:
-                        u = data["message"].get("usage", {})
+                    msg = data.get("message", {})
+                    if msg.get("role") == "assistant":
+                        u = msg.get("usage", {})
+                        inp = (u.get("input_tokens", 0)
+                               + u.get("cache_creation_input_tokens", 0)
+                               + u.get("cache_read_input_tokens", 0))
                         messages.append({
-                            "input":  u.get("input_tokens", 0),
+                            "input":  inp,
                             "output": u.get("output_tokens", 0),
                         })
                 except Exception:
