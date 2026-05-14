@@ -127,7 +127,7 @@ def main():
         bar,
         "",
     ])
-    print(json.dumps({"terminalSequence": text}))
+    print(text)
 
 
 if __name__ == "__main__":
