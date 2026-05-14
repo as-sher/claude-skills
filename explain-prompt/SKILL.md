@@ -116,13 +116,10 @@ Always report as **p25 / p50 / p75 range**, not a single number.
 
 ## Step 4: Calculate Costs
 
-### Current Claude Pricing (May 2026)
+### Current Claude Pricing
 
-| Model | Input $/MTok | Output $/MTok | Best for |
-|---|---|---|---|
-| Haiku 4.5 | $1.00 | $5.00 | High-volume, classification, routing |
-| Sonnet 4.6 | $3.00 | $15.00 | Production balanced workloads |
-| Opus 4.7 | $5.00 | $25.00 | Complex reasoning, flagship tasks |
+Read `references/pricing.md` for current model rates, discount mechanisms, and image/vision pricing.
+Use those rates for all cost calculations below.
 
 **Discounts to show:**
 - **Batch API**: 50% off input + output (async, 24hr SLA)
@@ -171,16 +168,16 @@ OUTPUT ESTIMATE (p25/p50/p75)
 COST PER CALL
 ─────────────────────────────────────────────────────────
  Model          Input Cost   Output Cost   Total/call
- Haiku 4.5      $0.0052      $0.0035       $0.0087
- Sonnet 4.6     $0.0155      $0.0105       $0.0260  ← recommended
- Opus 4.7        $0.0258      $0.0175       $0.0433
+ Haiku 4.5      [calculated]  [calculated]  [calculated]
+ Sonnet 4.6     [calculated]  [calculated]  [calculated]  ← recommended
+ Opus 4.7       [calculated]  [calculated]  [calculated]
 
 AT SCALE (Sonnet 4.6, p50 output)
 ─────────────────────────────────────────────────────────
  Volume         Standard      Batch API     With Caching
- 1k calls/day   $26/day       $13/day       $8/day
- 10k calls/day  $260/day      $130/day      $80/day
- 100k calls/day $2,600/day    $1,300/day    $800/day
+ 1k calls/day   [calculated]  [calculated]  [calculated]
+ 10k calls/day  [calculated]  [calculated]  [calculated]
+ 100k calls/day [calculated]  [calculated]  [calculated]
 
 WARNINGS
 ─────────────────────────────────────────────────────────
@@ -191,7 +188,7 @@ WARNINGS
 
  ℹ [INFO]   System prompt is static across calls.
              Prompt caching could save ~90% on that section.
-             Estimated saving: $X.XX/day at 10k calls.
+             Estimated saving: \$X.XX/day at 10k calls.
 ```
 
 Adapt the output to the actual sections found. Do not show sections that don't exist.
@@ -235,7 +232,7 @@ OPTIMIZED SECTION: Few-shot Examples
 ─────────────────────────────────────────────────────────
  Before: 3,800 tokens (4 examples)
  After:  1,100 tokens (2 examples — kept most diverse pair)
- Saving: 2,700 tokens = $0.0081/call on Sonnet = $81/day at 10k calls
+ Saving: 2,700 tokens = [cost saving/call on Sonnet] = [cost saving/day at 10k calls]
 
 [optimized text shown here]
 ```

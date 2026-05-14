@@ -7,6 +7,7 @@ Personal Claude Code skill collection.
 | Skill | Description |
 |-------|-------------|
 | [usage-tracker](usage-tracker/) | Shows token/cost/message stats after every response |
+| [explain-prompt](explain-prompt/) | Analyzes any prompt like a database EXPLAIN plan — token breakdown by section, cost across model tiers, and optimized rewrites |
 
 ## Installing a skill
 
